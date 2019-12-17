@@ -14,7 +14,9 @@ require 'aws-sdk-ecs'
 require 'aws-sdk-eks'
 require 'aws-sdk-elasticloadbalancing'
 require 'aws-sdk-elasticloadbalancingv2'
+require 'aws-sdk-firehose'
 require 'aws-sdk-iam'
+require 'aws-sdk-kinesis'
 require 'aws-sdk-kms'
 require 'aws-sdk-organizations'
 require 'aws-sdk-rds'
@@ -110,6 +112,14 @@ class AwsConnection
 
   def iam_client
     aws_client(Aws::IAM::Client)
+  end
+
+  def kinesis_client
+    aws_client(Aws::Kinesis::Client)
+  end
+
+  def kinesis_firehose_client
+    aws_client(Aws::Firehose::Client)
   end
 
   def kms_client
